@@ -1,0 +1,11 @@
+--- /var/www/html/forum.php.bak
++++ /var/www/html/forum.php
+@@ -32,7 +32,7 @@
+     <?php while($row=$posts->fetch_assoc()): ?>
+     <div style="border-bottom:1px solid #eee; padding-bottom: 1rem; margin-bottom: 1rem;">
+       <strong><?php echo htmlspecialchars($row['username']); ?></strong>:
+-      <p style="margin-top: 5px;"><?php echo $row['content']; ?></p> <!-- Vulnerable to stored XSS -->
++      <p style="margin-top: 5px;"><?php echo htmlspecialchars($row['content']); ?></p> <!-- Vulnerable to stored XSS -->
+     </div>
+     <?php endwhile; ?>
+ </div>

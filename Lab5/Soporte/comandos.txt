@@ -1,0 +1,26 @@
+COMANDOS
+# Fase A: análisis (desde la Kali)
+ip a
+nmap -sn 192.123.99.0/24
+nmap -sn 192.123.10.0/24
+nmap -sV -p- 192.123.10.10
+curl -I http://192.123.10.10
+ 
+# Fase B: endurecimiento (en DMZ.10 por SSH)
+cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+cp /var/www/html/forum.php /var/www/html/forum.php.bak
+mkdir -p /etc/nginx/ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.crt \
+  -subj "/C=CO/ST=Bogota/L=Bogota/O=AuraUniversity/CN=192.123.10.10"
+# edición de /etc/nginx/nginx.conf (sección 4.3) y creación de .user.ini (sección 4.4)
+nginx -t && nginx -s reload
+ps aux | grep php-fpm ; kill -USR2 <PID del proceso maestro>
+sed -i "s/echo \$row\['content'\];/echo htmlspecialchars(\$row['content']);/" /var/www/html/forum.php
+grep -n "row\['content'\]" /var/www/html/forum.php
+ 
+# Verificación posterior
+curl -I http://192.123.10.10      # 301 a HTTPS
+curl -Ik https://192.123.10.10    # cabeceras y cookie
+diff -u /etc/nginx/nginx.conf.bak /etc/nginx/nginx.conf
+diff -u /var/www/html/forum.php.bak /var/www/html/forum.php

@@ -1,0 +1,28 @@
+Fig_1.01.jpg	Figura 1.1. Firefox con proxy manual 127.0.0.1:8080 (también para HTTPS) para que Burp Suite capture el tráfico.
+Fig_1.02.jpg	Figura 1.2. Configuración de red de la Kali (192.123.99.128/24) y descubrimiento en 192.123.99.0/24: solo pfSense y Kali.
+Fig_1.03.jpg	Figura 1.3. Interfaz OPT1 de pfSense: segmento DMZ 192.123.10.1/24.
+Fig_1.04.jpg	Figura 1.4. Descubrimiento en 192.123.10.0/24, se ubica el host 192.123.10.10 (DMZ.10), objetivo del análisis.
+Fig_1.05.jpg	Figura 1.5. Intento de inyección SQL en el formulario de login.
+Fig_1.06.jpg	Figura 1.6. Resultado: "Credenciales inválidas" (la inyección no tuvo efecto).
+Fig_2.01.jpg	Figura 2.1. nmap -sV -p- 192.123.10.10: abiertos 22 (SSH), 80 (nginx) y 9000. No hay puerto 443: no existe transporte cifrado.
+Fig_2.02.jpg	Figura 2.2. curl -I http://192.123.10.10: respuesta 200 sin redirección a HTTPS, sin cabeceras de seguridad y con Set-Cookie: PHPSESSID=...; path=/.
+Fig_2.03.jpg	Figura 2.3. Burp Suite (Proxy > Intercept): la petición GET y la cookie PHPSESSID viajan en texto plano por el puerto 80.
+Fig_2.04.jpg	Figura 2.4. Burp HTTP history: petición y respuesta completas en claro (cabeceras Server y X-Powered-By incluidas).
+Fig_2.05.jpg	Figura 2.5. Burp HTTP history: las peticiones POST a /login.php y /forum.php también viajan por HTTP (http://192.123.10.10).
+Fig_2.06.jpg	Figura 2.6. Payload ingresado en el formulario "Nuevo Mensaje" del foro.
+Fig_2.07.jpg	Figura 2.7. Burp HTTP history: POST /forum.php con content=%3Cscript%3Ealert(1)%3C%2Fscript%3E y respuesta que devuelve el script sin escapar (junto al comentario <!-- Vulnerable to stored XSS -->).
+Fig_2.08.jpg	Figura 2.8. Explotación: el payload se ejecuta automáticamente al cargar el foro (ventana alert).
+Fig_2.09.jpg	Figura 2.9.  El mensaje queda almacenado en el foro y se vuelve a ejecutar en cada visita (XSS almacenado, no reflejado).
+Fig_4.01.jpg	Figura 4.1. Configuración original de nginx: un solo bloque server en el puerto 80, sin TLS, con fastcgi_pass 127.0.0.1:9000.
+Fig_4.02.jpg	Figura 4.2. Generación del par de llaves y el certificado, validación de sintaxis (nginx -t: "syntax is ok") y recarga sin interrupción (nginx -s reload). El primer nginx -t falló por el certificado inexistente y pasó tras crearlo.
+Fig_4.03.jpg	Figura 4.3. diff -u nginx.conf.bak nginx.conf: líneas añadidas (redirección 301, bloque 443, TLS 1.2/1.3 y cabeceras).
+Fig_4.04.jpg	Figura 4.4. Advertencia de Firefox al abrir https://192.123.10.10 por el certificado autofirmado (respalda la justificación de la sección 4.2).
+Fig_4.05.jpg	Figura 4.5. Detalle del error SEC_ERROR_UNKNOWN_ISSUER: emisor desconocido / certificado autofirmado.
+Fig_4.06.jpg	Figura 4.6. curl -I http://192.123.10.10 tras el cambio: 301 Moved Permanently con Location: https://192.123.10.10/.
+Fig_4.07.jpg	Figura 4.7. curl -Ik https://192.123.10.10: respuesta 200 con las cinco cabeceras de seguridad.
+Fig_4.08.jpg	Figura 4.8. Recarga de PHP-FPM y curl -Ik https://...: la cookie PHPSESSID ahora incluye secure; HttpOnly; SameSite=Strict (compárese con la Fig. 2.2, donde solo tenía path=/).
+Fig_5.01.jpg	Figura 5.1. diff -u forum.php.bak forum.php: una sola línea modificada (cambio mínimo, bajo riesgo de regresión).
+Fig_5.02.jpg	Figura 5.2. Respaldo de forum.php (cp), aplicación del cambio (sed -i) y verificación con grep.
+Fig_5.03.jpg	Figura 5.3. Validación posterior sobre HTTPS: el payload se ve como texto plano y no se ejecuta; los mensajes con alert(1) anteriores también aparecen escapados.
+Fig_6.01.jpg	Figura 6.1. Panel de estudiante cargando con normalidad sobre HTTPS tras el endurecimiento (sesión de "alice").
+Fig_7.01.jpg	Figura 7.1. HTML del login en Burp: el formulario solo contiene username y password, sin campo de token anti-CSRF.
