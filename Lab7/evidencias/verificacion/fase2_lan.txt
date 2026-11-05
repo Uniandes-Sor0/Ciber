@@ -1,0 +1,16 @@
+=== VERIFICACION FASE 2 - 2026-11-05T09:59:38-05:00 - bloque: lan ===
+--- LAN / gestion (origen Kali) ---
+  [ OK  ] ping 192.123.99.1 (gateway LAN)
+  [ OK  ] ping 192.123.10.10 (web)
+  [ OK  ] ping 192.123.20.10 (db)
+  [ OK  ] ping 192.123.20.40 (wazuh mgr)
+  [REGLA OK / SERVICIO CAIDO] panel Wazuh - cruza el firewall pero nada escucha en 192.123.20.42:443
+  [ OK  ] API Wazuh (192.123.20.40:55000 abierto)
+  [ OK  ] SSH web (192.123.10.10:22 abierto)
+  [ OK  ] SSH ftp (192.123.10.20:22 abierto)
+  [ OK  ] SSH db (192.123.20.10:22 abierto)
+  · controles de minimo privilegio:
+  [ OK  ] bloqueado como se espera: Kali -> MySQL
+  [ OK  ] bloqueado como se espera: Kali -> php-fpm
+  [ OK  ] bloqueado como se espera: Kali -> web 80 (solo OTHER debe entrar)
+=== fin ===

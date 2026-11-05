@@ -1,0 +1,18 @@
+=== Sobrevivencia de las reglas del Lab6 (VPN + VLANs HIDDEN) - 2026-10-29T12:21:07-05:00 ===
+--- estado del tunel ---
+tun0             UNKNOWN        10.8.0.2/24 fe80::966:c042:1713:571e/64 
+10.8.0.0/24 dev tun0 proto kernel scope link src 10.8.0.2 
+192.123.40.0/24 via 10.8.0.1 dev tun0 
+
+--- servidores HIDDEN (Lab6: nginx 1.31.3 en 80) ---
+192.123.40.1     ping: X   tcp80: X
+192.123.40.4     ping: X   tcp80: X
+192.123.40.189   ping: X   tcp80: X
+192.123.40.231   ping: X   tcp80: X
+
+--- gateways de las VLAN nuevas (Lab6) ---
+192.123.41.1     ping: X
+192.123.42.1     ping: X
+
+--- contenido HTTP (Lab6: md5 f24c1e10effb95ac89026cc9decd7713) ---
+d41d8cd98f00b204e9800998ecf8427e  -

@@ -25,38 +25,59 @@ Tareas: (1) reconstruir reglas con **mínimo privilegio**; (2) instalar **agente
 - **WAN conserva reglas a propósito** (gestión): OpenVPN 1194, NAT SSH/RDP → KALI, syslog 514 → WAZUH_NODES, block bogons. **No tocar.**
 - **nmap -sn:** 0 hosts up. **ping al gateway .99.1 = 100% packet loss** (solo 443/80 permitido por anti-lockout) → **aislamiento total confirmado**.
 
-## Fase 2 — Diseño de reglas (mínimo privilegio) — PROPUESTA
-Regla en la interfaz de **origen** (stateful: la respuesta se permite sola). ✅ = dependencia segura; ❓ = pendiente de confirmar.
+## Fase 2 — Reconstrucción de reglas ⏳ (LAN ✅ aplicado 05/11 · faltan DMZ, OTHER, INTERNA, VLANs)
 
-### OPT1 / DMZ (origen: servidores DMZ)
-| Origen | Destino | Puerto | Justificación |
-|---|---|---|---|
-| ✅ WEB .10.10 | DB .20.10 | TCP 3306❓ | App web → base de datos |
-| ✅ WEB .10.10, FTP .10.20 | WAZUH_MANAGER .20.40 | TCP 1514-1515 | Agentes Wazuh → SIEM (tarea nueva) |
+### Bloque LAN — APLICADO Y VERIFICADO (05/11)
+Las 6 reglas (LAN-1…LAN-5) están activas y el verificador pasa en verde: ping a las 4 zonas,
+SSH a web/ftp/db, API Wazuh 55000. Los 3 controles de mínimo privilegio (Kali→MySQL,
+Kali→php-fpm, Kali→web 80) siguen **bloqueados**, como debe ser.
+Evidencia: `evidencias/verificacion/fase2_lan.txt`.
 
-### OPT3 / OTHER (origen: usuarios)
-| Origen | Destino | Puerto | Justificación |
-|---|---|---|---|
-| ❓ OTHER | WEB .10.10 | TCP 80,443 | Acceso web |
-| ❓ OTHER | MAIL .10.30 | TCP 25/587/143/993 | Correo |
-| ❓ OTHER | FTP .10.20 | TCP 21 + pasivos | FTP |
+**Incidente didáctico para el informe (*shadowing* de reglas):** al crearlas con el botón
+`Add ↑`, LAN-5 (deny-all) quedó **encima** de las demás. pfSense evalúa de arriba abajo con
+*first match wins*, así que bloqueaba todo y las 5 reglas de paso nunca se evaluaban. Se detectó
+porque el panel de Wazuh pasó de `Connection refused` a `Connection timed out` sin tocar LAN-1.
+Se arregló arrastrando LAN-5 al final. Responde directo a la pregunta 1 de reflexión.
 
-### LAN / GESTIÓN (origen: Kali/admin)
-| Origen | Destino | Puerto | Justificación |
-|---|---|---|---|
-| ✅ MASCARA_KALI | WAZUH_DASHBOARD .20.42 | TCP 443 | Ver panel SIEM |
-| ❓ KALI | servidores | TCP 22 | Administración (acotar) |
+**Hallazgo abierto:** el **Wazuh Dashboard no escucha en 192.123.20.42:443** (da *refused*: el
+paquete cruza el firewall, no hay servicio). El **Manager sí responde en 55000**, así que la pila
+está viva y es solo el puerto/servicio del panel. Hay que encontrar el puerto real (¿5601?) —
+requiere una regla temporal `KALI → WAZUH_NODES` para inventariar, o mirarlo desde el manager.
 
-### INTERNAL / VLANs HIDDEN
-- INTERNAL: sin reglas entrantes nuevas (respuestas stateful).
-- VLAN41/42 HIDDEN: pendiente de qué alojan.
 
-## Pendiente de confirmar (5 datos)
-1. IPs reales de web/ftp/mail (¿.10.10 / .10.20 / .10.30 como en Lab 1?)
-2. Motor y puerto de BD (MySQL 3306 / PostgreSQL 5432 / otro)
-3. Zona de los clientes (¿OTHER 30.x? ¿también HIDDEN?)
-4. Protocolos de correo necesarios
-5. Qué alojan VLAN41_SERV y VLAN42_LEGACY y si participan en flujos
+
+**Matriz completa y pasos de la GUI: [`FASE2_reglas.md`](FASE2_reglas.md).** Resumen:
+
+| Interfaz | Reglas de paso | Idea |
+|---|---|---|
+| LAN (gestión) | Kali → Dashboard 443, Manager 55000, servidores 22, ICMP echo a todo | poder ver y verificar |
+| OPT1 DMZ | WEB→DB 3306 · agentes→Manager 1514/1515 · DNS .10.1:53 · agentes→**!internas** 80/443 | servicio + Fase 3 sin pivote |
+| OPT3 OTHER | →WEB 80 · →MAIL 143/465/587 · →FTP 21 + pasivo 50000-50100 | usuarios, sin tocar la BD |
+| OPT2 INTERNA | ninguna (solo respuestas por estado) | zona de datos, deny total |
+| OPT4 / VLAN41 / VLAN42 | ninguna | deny hasta inventariar |
+| WAN | **no tocar** | gestión intacta |
+
+Cada interfaz cierra con un **block + log** explícito: no cambia el filtrado pero deja rastro, y
+el syslog 514 ya va a `WAZUH_NODES` → el SIEM también ve lo denegado.
+
+### Los 5 pendientes: RESUELTOS (fuente: `Lab1/evidencias/nmap/` + `WazuhAlpine.pdf`)
+1. **IPs/puertos reales:** web `192.123.10.10` **solo 80** (nginx 1.26.3, Alpine; 9000 = php-fpm, no se abre) · ftp `192.123.10.20` **21** (vsftpd 3.0.3) · mail `192.123.10.30` **25/143/465/587** (Postfix+Dovecot) · todos con 22.
+2. **BD:** MySQL 8.0.46 en `192.123.20.10` → **3306/TCP**.
+3. **Clientes:** zona OTHER `192.123.30.0/24` (.10, .11 y .20 vivos). Las VLAN HIDDEN no participan en ningún flujo conocido.
+4. **Correo:** a los clientes solo IMAP 143 + submission 587/465. **El 25 NO se abre a clientes** (es transporte servidor-a-servidor).
+5. **VLAN41_SERV / VLAN42_LEGACY: RESUELTO con el entregable del Lab 6** (`Lab6/Lab6_entrega 2.zip`). HIDDEN = `192.123.40.0/24` con 4 hosts: gateway `.40.1` (Unbound DNS + nginx) y tres web `.40.4`, `.40.189`, `.40.231` (nginx 1.31.3, solo puerto 80, contenido idéntico, 3 CVE sin parchear). Las VLAN 41/42 las crearon **ellas** en el Lab 6 sobre `vtnet5`, con los hosts aún **sin migrar** (siguen en 40.x sin etiquetar). **Hallazgo nuevo (verificado hoy en la VM):** el borrado del practicante se llevó también la regla de la pestaña **OpenVPN** → `tun0` levanta y la ruta existe, pero ningún host de HIDDEN responde y el `curl` devuelve cuerpo vacío en vez del `f24c1e10…` del Lab 6. Restaurar esa regla y las de VLAN41/42 es parte de la Fase 2 (ver `FASE2_reglas.md` §2.5). Revisión del diseño del Lab 6: `Lab6/REVISION_diseno.md`.
+
+### Hallazgo que condiciona la Fase 3
+El web es **Alpine + musl**: el agente Wazuh 4.12 hay que **compilarlo** (`apk add`, `git clone`,
+`make deps`) → necesita **salida a Internet**. De ahí la regla DMZ-4 con destino **negado**
+(`not REDES_INTERNAS`): sale a Internet pero no puede pivotar hacia dentro. Alternativa sin
+salida: bajar fuentes y dependencias por `scp` desde Kali.
+
+### Línea base antes de aplicar (evidencia)
+`~/lab7/verificacion/antes_fase2.txt` (29/10): ping al gateway .99.1 **100% loss**; los 8 flujos
+(web 80, ftp 21, mail 25/587, db 3306, wazuh 1514/1515, dashboard 443) **todos en timeout**;
+en pfSense solo responden 443/80 (anti-lockout) y el 22 del firewall está cerrado → la
+configuración se hace **por la GUI**, no por CLI.
 
 ## Acceso y puente de evidencias
 - **Kali SSH/RDP = `10.10.20.63`** (NO `172.24.101.18:8000`, que da TCP cerrado). Requiere la VPN del lab (la PC obtiene `10.10.8.x`).

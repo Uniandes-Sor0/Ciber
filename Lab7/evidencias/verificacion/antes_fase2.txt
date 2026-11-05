@@ -1,0 +1,33 @@
+=== BASELINE ANTES DE FASE 2 — 2026-10-29T11:00:12-05:00 ===
+--- ping gateway LAN (192.123.99.1) ---
+--- 192.123.99.1 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1022ms
+
+
+--- pfSense GUI / SSH desde Kali ---
+192.123.99.1: inverse host lookup failed: Host name lookup failure
+(UNKNOWN) [192.123.99.1] 443 (https) open
+192.123.99.1: inverse host lookup failed: Host name lookup failure
+(UNKNOWN) [192.123.99.1] 80 (http) open
+192.123.99.1: inverse host lookup failed: Host name lookup failure
+(UNKNOWN) [192.123.99.1] 22 (ssh) : Connection timed out
+
+--- flujos de servicio (esperado: todo bloqueado) ---
+(UNKNOWN) [192.123.10.10] 80 (http) : Connection timed out
+
+--- flujos de servicio esperados (antes de Fase 2) ---
+192.123.10.10:80 -> (UNKNOWN) [192.123.10.10] 80 (http) : Connection timed out
+192.123.10.20:21 -> (UNKNOWN) [192.123.10.20] 21 (ftp) : Connection timed out
+192.123.10.30:25 -> (UNKNOWN) [192.123.10.30] 25 (smtp) : Connection timed out
+192.123.10.30:587 -> (UNKNOWN) [192.123.10.30] 587 (submission) : Connection timed out
+192.123.20.10:3306 -> (UNKNOWN) [192.123.20.10] 3306 (mysql) : Connection timed out
+192.123.20.40:1514 -> (UNKNOWN) [192.123.20.40] 1514 (?) : Connection timed out
+192.123.20.40:1515 -> (UNKNOWN) [192.123.20.40] 1515 (?) : Connection timed out
+192.123.20.42:443 -> (UNKNOWN) [192.123.20.42] 443 (https) : Connection timed out
+
+--- via tun0 (VPN): troncal y VLANs HIDDEN ---
+10.8.0.0/24 dev tun0 proto kernel scope link src 10.8.0.2 
+192.123.40.0/24 via 10.8.0.1 dev tun0 
+## 192.123.40.0/24
+Nmap done: 256 IP addresses (0 hosts up) scanned in 206.24 seconds
+## 192.123.41.0/24
