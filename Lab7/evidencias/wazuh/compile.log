@@ -1,0 +1,627 @@
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+cp /usr/lib/gcc/x86_64-alpine-linux-musl/14.2.0/../../../../lib/libstdc++.so.6 libstdc++.so.6
+strip -x libstdc++.so.6
+cp /usr/lib/gcc/x86_64-alpine-linux-musl/14.2.0/../../../../lib/libgcc_s.so.1 libgcc_s.so.1
+strip -x libgcc_s.so.1
+make build_sysinfo build_shared_modules build_syscollector
+make[1]: Entering directory '/root/wazuh/src'
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+cd data_provider/ && mkdir -p build && cd build && cmake -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"    .. && make
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test HAS_OPTIONAL
+-- Performing Test HAS_OPTIONAL - Success
+-- Performing Test HAS_FILESYSTEM
+-- Performing Test HAS_FILESYSTEM - Success
+-- Configuring done (2.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/data_provider/build
+make[2]: Entering directory '/root/wazuh/src/data_provider/build'
+[  5%] Building CXX object /root/wazuh/src/shared_modules/http-request/build/CMakeFiles/urlrequest.dir/src/HTTPRequest.cpp.o
+[ 11%] Building CXX object /root/wazuh/src/shared_modules/http-request/build/CMakeFiles/urlrequest.dir/src/UNIXSocketRequest.cpp.o
+[ 16%] Linking CXX static library /root/wazuh/src/data_provider/build/lib/liburlrequest.a
+[ 16%] Built target urlrequest
+[ 22%] Building CXX object CMakeFiles/sysinfo.dir/src/network/networkInterfaceLinux.cpp.o
+[ 27%] Building CXX object CMakeFiles/sysinfo.dir/src/osinfo/sysOsParsers.cpp.o
+[ 33%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserApk.cpp.o
+[ 38%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserDeb.cpp.o
+[ 44%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserExtra.cpp.o
+[ 50%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserRpm.cpp.o
+[ 55%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserRpmLegacy.cpp.o
+[ 61%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/packageLinuxParserSnap.cpp.o
+[ 66%] Building CXX object CMakeFiles/sysinfo.dir/src/packages/rpmPackageManager.cpp.o
+[ 72%] Building CXX object CMakeFiles/sysinfo.dir/src/sysInfoLinux.cpp.o
+[ 77%] Building CXX object CMakeFiles/sysinfo.dir/src/utilsWrapperLinux.cpp.o
+[ 83%] Building CXX object CMakeFiles/sysinfo.dir/src/sysInfo.cpp.o
+[ 88%] Linking CXX shared library lib/libsysinfo.so
+[ 88%] Built target sysinfo
+[ 94%] Building CXX object testtool/CMakeFiles/sysinfo_test_tool.dir/main.cpp.o
+[100%] Linking CXX executable ../bin/sysinfo_test_tool
+[100%] Built target sysinfo_test_tool
+make[2]: Leaving directory '/root/wazuh/src/data_provider/build'
+cd shared_modules/dbsync/ && mkdir -p build && cd build && cmake -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"   .. && make
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/shared_modules/dbsync/build
+make[2]: Entering directory '/root/wazuh/src/shared_modules/dbsync/build'
+[ 10%] Building CXX object CMakeFiles/dbsync.dir/src/dbsync.cpp.o
+[ 20%] Building CXX object CMakeFiles/dbsync.dir/src/dbsyncPipelineFactory.cpp.o
+[ 30%] Building CXX object CMakeFiles/dbsync.dir/src/dbsync_implementation.cpp.o
+[ 40%] Building CXX object CMakeFiles/dbsync.dir/src/sqlite/sqlite_dbengine.cpp.o
+[ 50%] Building CXX object CMakeFiles/dbsync.dir/src/sqlite/sqlite_wrapper.cpp.o
+[ 60%] Linking CXX shared library lib/libdbsync.so
+[ 60%] Built target dbsync
+[ 70%] Building CXX object example/CMakeFiles/dbsync_example.dir/main.cpp.o
+[ 80%] Linking CXX executable ../bin/dbsync_example
+[ 80%] Built target dbsync_example
+[ 90%] Building CXX object testtool/CMakeFiles/dbsync_test_tool.dir/main.cpp.o
+[100%] Linking CXX executable ../bin/dbsync_test_tool
+[100%] Built target dbsync_test_tool
+make[2]: Leaving directory '/root/wazuh/src/shared_modules/dbsync/build'
+cd shared_modules/rsync/ && mkdir -p build && cd build && cmake -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"    .. && make
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/shared_modules/rsync/build
+make[2]: Entering directory '/root/wazuh/src/shared_modules/rsync/build'
+[ 12%] Building CXX object CMakeFiles/rsync.dir/src/rsync.cpp.o
+[ 25%] Building CXX object CMakeFiles/rsync.dir/src/rsyncImplementation.cpp.o
+[ 37%] Linking CXX shared library lib/librsync.so
+[ 37%] Built target rsync
+[ 50%] Building CXX object testtool/CMakeFiles/rsync_test_tool.dir/main.cpp.o
+[ 62%] Building CXX object testtool/CMakeFiles/rsync_test_tool.dir/agentEmulator.cpp.o
+[ 75%] Building CXX object testtool/CMakeFiles/rsync_test_tool.dir/oneTimeSync.cpp.o
+[ 87%] Building CXX object testtool/CMakeFiles/rsync_test_tool.dir/managerEmulator.cpp.o
+[100%] Linking CXX executable ../bin/rsync_test_tool
+[100%] Built target rsync_test_tool
+make[2]: Leaving directory '/root/wazuh/src/shared_modules/rsync/build'
+cd wazuh_modules/syscollector/ && mkdir -p build && cd build && cmake -DTARGET=agent -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"    .. && make
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/wazuh_modules/syscollector/build
+make[2]: Entering directory '/root/wazuh/src/wazuh_modules/syscollector/build'
+[ 16%] Building CXX object CMakeFiles/syscollector.dir/src/syscollector.cpp.o
+[ 33%] Building CXX object CMakeFiles/syscollector.dir/src/syscollectorImp.cpp.o
+[ 50%] Building CXX object CMakeFiles/syscollector.dir/src/syscollectorNormalizer.cpp.o
+[ 66%] Linking CXX shared library lib/libsyscollector.so
+[ 66%] Built target syscollector
+[ 83%] Building CXX object testtool/CMakeFiles/syscollector_test_tool.dir/main.cpp.o
+[100%] Linking CXX executable ../bin/syscollector_test_tool
+[100%] Built target syscollector_test_tool
+make[2]: Leaving directory '/root/wazuh/src/wazuh_modules/syscollector/build'
+make[1]: Leaving directory '/root/wazuh/src'
+make wazuh-agentd agent-auth wazuh-logcollector wazuh-syscheckd wazuh-execd manage_agents active-responses wazuh-modulesd
+make[1]: Entering directory '/root/wazuh/src'
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+    [34mCC[0m [33mclient-agent/agcom.o[0m
+    [34mCC[0m [33mclient-agent/agentd.o[0m
+    [34mCC[0m [33mclient-agent/buffer.o[0m
+    [34mCC[0m [33mclient-agent/config.o[0m
+    [34mCC[0m [33mclient-agent/event-forward.o[0m
+    [34mCC[0m [33mclient-agent/main.o[0m
+    [34mCC[0m [33mclient-agent/notify.o[0m
+    [34mCC[0m [33mclient-agent/receiver.o[0m
+    [34mCC[0m [33mclient-agent/request.o[0m
+    [34mCC[0m [33mclient-agent/restart_agent.o[0m
+    [34mCC[0m [33mclient-agent/rotate_log.o[0m
+    [34mCC[0m [33mclient-agent/sendmsg.o[0m
+    [34mCC[0m [33mclient-agent/start_agent.o[0m
+    [34mCC[0m [33mclient-agent/state.o[0m
+    [34mCC[0m [33mmonitord/rotate_log.o[0m
+    [34mCC[0m [33mmonitord/compress_log.o[0m
+    [34mCC[0m [33mconfig/active-response.o[0m
+    [34mCC[0m [33mconfig/agentlessd-config.o[0m
+    [34mCC[0m [33mconfig/alerts-config.o[0m
+    [34mCC[0m [33mconfig/authd-config.o[0m
+    [34mCC[0m [33mconfig/authd-key-request-config.o[0m
+    [34mCC[0m [33mconfig/buffer-config.o[0m
+    [34mCC[0m [33mconfig/client-config.o[0m
+    [34mCC[0m [33mconfig/cluster-config.o[0m
+    [34mCC[0m [33mconfig/config.o[0m
+    [34mCC[0m [33mconfig/csyslogd-config.o[0m
+    [34mCC[0m [33mconfig/dbd-config.o[0m
+    [34mCC[0m [33mconfig/email-alerts-config.o[0m
+    [34mCC[0m [33mconfig/global-config.o[0m
+config/global-config.c: In function 'Read_Global':
+config/global-config.c:161:17: warning: unused variable 'xml_cti_url' [-Wunused-variable]
+  161 |     const char *xml_cti_url = "cti-url";
+      |                 ^~~~~~~~~~~
+config/global-config.c:160:17: warning: unused variable 'xml_limits' [-Wunused-variable]
+  160 |     const char *xml_limits = "limits";
+      |                 ^~~~~~~~~~
+config/global-config.c:125:31: warning: unused parameter 'xml' [-Wunused-parameter]
+  125 | int Read_Global(const OS_XML *xml, XML_NODE node, void *configp, void *mailp)
+      |                 ~~~~~~~~~~~~~~^~~
+    [34mCC[0m [33mconfig/indexer-config.o[0m
+    [34mCC[0m [33mconfig/integrator-config.o[0m
+    [34mCC[0m [33mconfig/labels-config.o[0m
+    [34mCC[0m [33mconfig/localfile-config.o[0m
+    [34mCC[0m [33mconfig/logtest-config.o[0m
+    [34mCC[0m [33mconfig/remote-config.o[0m
+    [34mCC[0m [33mconfig/reports-config.o[0m
+    [34mCC[0m [33mconfig/rootcheck-config.o[0m
+    [34mCC[0m [33mconfig/rules-config.o[0m
+    [34mCC[0m [33mconfig/socket-config.o[0m
+    [34mCC[0m [33mconfig/syscheck-config.o[0m
+    [34mCC[0m [33mconfig/wazuh_db-config.o[0m
+    [34mCC[0m [33mconfig/wmodules-agent-upgrade.o[0m
+    [34mCC[0m [33mconfig/wmodules-aws.o[0m
+    [34mCC[0m [33mconfig/wmodules-azure.o[0m
+    [34mCC[0m [33mconfig/wmodules-ciscat.o[0m
+    [34mCC[0m [33mconfig/wmodules-command.o[0m
+    [34mCC[0m [33mconfig/wmodules-config.o[0m
+    [34mCC[0m [33mconfig/wmodules-docker.o[0m
+    [34mCC[0m [33mconfig/wmodules-fluent.o[0m
+    [34mCC[0m [33mconfig/wmodules-gcp.o[0m
+    [34mCC[0m [33mconfig/wmodules-github.o[0m
+    [34mCC[0m [33mconfig/wmodules-key-request.o[0m
+    [34mCC[0m [33mconfig/wmodules-ms-graph.o[0m
+    [34mCC[0m [33mconfig/wmodules-office365.o[0m
+    [34mCC[0m [33mconfig/wmodules-oscap.o[0m
+    [34mCC[0m [33mconfig/wmodules-osquery-monitor.o[0m
+    [34mCC[0m [33mconfig/wmodules-sca.o[0m
+    [34mCC[0m [33mconfig/wmodules-syscollector.o[0m
+    [34mCC[0m [33mconfig/wmodules-task-manager.o[0m
+    [34mCC[0m [33mconfig/wmodules-vulnerability-detection.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_aws.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_azure.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_ciscat.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_command.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_content_manager.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_control.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_database.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_docker.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_download.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_exec.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_fluent.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_gcp.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_github.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_ms_graph.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_office365.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_oscap.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_osquery_monitor.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_router.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_sca.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_syscollector.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_task_general.o[0m
+    [34mCC[0m [33mwazuh_modules/wm_vulnerability_scanner.o[0m
+    [34mCC[0m [33mwazuh_modules/wmcom.o[0m
+    [34mCC[0m [33mwazuh_modules/wmodules.o[0m
+    [34mCC[0m [33mwazuh_modules/agent_upgrade/wm_agent_upgrade.o[0m
+    [34mCC[0m [33mwazuh_modules/agent_upgrade/agent/wm_agent_upgrade_agent.o[0m
+    [34mCC[0m [33mwazuh_modules/agent_upgrade/agent/wm_agent_upgrade_com.o[0m
+    [34mCC[0m [33mwazuh_db/helpers/wdb_agents_helpers.o[0m
+    [34mCC[0m [33mwazuh_db/helpers/wdb_global_helpers.o[0m
+    [34mCC[0m [33mwazuh_db/wdb_shared.o[0m
+    [34mCC[0m [33mos_crypto/blowfish/bf_op.o[0m
+os_crypto/blowfish/bf_op.c: In function 'OS_BF_Str':
+os_crypto/blowfish/bf_op.c:34:5: warning: 'BF_set_key' is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   34 |     BF_set_key(&key, (int)strlen(charkey), (const uchar *)charkey);
+      |     ^~~~~~~~~~
+In file included from os_crypto/blowfish/bf_op.c:19:
+external/openssl/include/openssl/blowfish.h:50:28: note: declared here
+   50 | OSSL_DEPRECATEDIN_3_0 void BF_set_key(BF_KEY *key, int len,
+      |                            ^~~~~~~~~~
+os_crypto/blowfish/bf_op.c:36:5: warning: 'BF_cbc_encrypt' is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   36 |     BF_cbc_encrypt((const uchar *)input, (uchar *)output, (long)size,
+      |     ^~~~~~~~~~~~~~
+external/openssl/include/openssl/blowfish.h:57:28: note: declared here
+   57 | OSSL_DEPRECATEDIN_3_0 void BF_cbc_encrypt(const unsigned char *in,
+      |                            ^~~~~~~~~~~~~~
+    [34mCC[0m [33mos_crypto/md5/md5_op.o[0m
+    [34mCC[0m [33mos_crypto/sha1/sha1_op.o[0m
+    [34mCC[0m [33mos_crypto/shared/keys.o[0m
+    [34mCC[0m [33mos_crypto/shared/msgs.o[0m
+    [34mCC[0m [33mos_crypto/md5_sha1/md5_sha1_op.o[0m
+    [34mCC[0m [33mos_crypto/md5_sha1_sha256/md5_sha1_sha256_op.o[0m
+os_crypto/md5_sha1_sha256/md5_sha1_sha256_op.c: In function 'OS_MD5_SHA1_SHA256_File':
+os_crypto/md5_sha1_sha256/md5_sha1_sha256_op.c:140:9: warning: 'wfd' may be used uninitialized [-Wmaybe-uninitialized]
+  140 |         wpclose(wfd);
+      |         ^~~~~~~~~~~~
+os_crypto/md5_sha1_sha256/md5_sha1_sha256_op.c:31:12: note: 'wfd' was declared here
+   31 |     wfd_t *wfd;
+      |            ^~~
+    [34mCC[0m [33mos_crypto/sha256/sha256_op.o[0m
+    [34mCC[0m [33mos_crypto/sha512/sha512_op.o[0m
+    [34mCC[0m [33mos_crypto/aes/aes_op.o[0m
+    [34mCC[0m [33mos_crypto/hmac/hmac.o[0m
+    [34mCC[0m [33mos_crypto/signature/signature.o[0m
+    [34mCC[0m [33mshared/agent_messages_adapter.o[0m
+    [34mCC[0m [33mshared/agent_op.o[0m
+    [34mCC[0m [33mshared/atomic.o[0m
+    [34mCC[0m [33mshared/audit_op.o[0m
+    [34mCC[0m [33mshared/auth_client.o[0m
+    [34mCC[0m [33mshared/b64.o[0m
+shared/b64.c: In function 'encode_base64':
+shared/b64.c:54:33: warning: 'calloc' sizes specified with 'sizeof' in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+   54 |     out = (char *)calloc(sizeof(char), size * 4 / 3 + 4);
+      |                                 ^~~~
+shared/b64.c:54:33: note: earlier argument should specify number of elements, later size of each element
+shared/b64.c: In function 'decode_base64':
+shared/b64.c:111:38: warning: 'calloc' sizes specified with 'sizeof' in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  111 |         dest = (char *)calloc(sizeof(char), l + 13);
+      |                                      ^~~~
+shared/b64.c:111:38: note: earlier argument should specify number of elements, later size of each element
+    [34mCC[0m [33mshared/binaries_op.o[0m
+    [34mCC[0m [33mshared/bqueue_op.o[0m
+    [34mCC[0m [33mshared/buffer_op.o[0m
+    [34mCC[0m [33mshared/bzip2_op.o[0m
+    [34mCC[0m [33mshared/cluster_utils.o[0m
+    [34mCC[0m [33mshared/cryptography.o[0m
+    [34mCC[0m [33mshared/custom_output_search_replace.o[0m
+    [34mCC[0m [33mshared/debug_op.o[0m
+    [34mCC[0m [33mshared/dll_load_notify.o[0m
+    [34mCC[0m [33mshared/enrollment_op.o[0m
+    [34mCC[0m [33mshared/exec_op.o[0m
+    [34mCC[0m [33mshared/expression.o[0m
+    [34mCC[0m [33mshared/file-queue.o[0m
+    [34mCC[0m [33mshared/file_op.o[0m
+    [34mCC[0m [33mshared/fs_op.o[0m
+shared/fs_op.c: In function 'IsNFS':
+shared/fs_op.c:75:47: warning: comparison of integer expressions of different signedness: 'long int' and 'long unsigned int' [-Wsign-compare]
+   75 |             if(network_file_systems[i].f_type == stfs.f_type ) {
+      |                                               ^~
+shared/fs_op.c: In function 'skipFS':
+shared/fs_op.c:105:44: warning: comparison of integer expressions of different signedness: 'long int' and 'long unsigned int' [-Wsign-compare]
+  105 |             if(skip_file_systems[i].f_type == stfs.f_type ) {
+      |                                            ^~
+    [34mCC[0m [33mshared/hash_op.o[0m
+    [34mCC[0m [33mshared/help.o[0m
+    [34mCC[0m [33mshared/integrity_op.o[0m
+    [34mCC[0m [33mshared/json-queue.o[0m
+    [34mCC[0m [33mshared/json_op.o[0m
+    [34mCC[0m [33mshared/labels_op.o[0m
+    [34mCC[0m [33mshared/list_op.o[0m
+    [34mCC[0m [33mshared/log_builder.o[0m
+    [34mCC[0m [33mshared/logging_helper.o[0m
+    [34mCC[0m [33mshared/math_op.o[0m
+    [34mCC[0m [33mshared/mem_op.o[0m
+    [34mCC[0m [33mshared/mq_op.o[0m
+    [34mCC[0m [33mshared/notify_op.o[0m
+    [34mCC[0m [33mshared/os_utils.o[0m
+    [34mCC[0m [33mshared/privsep_op.o[0m
+    [34mCC[0m [33mshared/pthreads_op.o[0m
+    [34mCC[0m [33mshared/queue_linked_op.o[0m
+    [34mCC[0m [33mshared/queue_op.o[0m
+    [34mCC[0m [33mshared/randombytes.o[0m
+    [34mCC[0m [33mshared/rbtree_op.o[0m
+    [34mCC[0m [33mshared/read-agents.o[0m
+    [34mCC[0m [33mshared/read-alert.o[0m
+    [34mCC[0m [33mshared/regex_op.o[0m
+    [34mCC[0m [33mshared/remoted_op.o[0m
+    [34mCC[0m [33mshared/report_op.o[0m
+    [34mCC[0m [33mshared/request_op.o[0m
+    [34mCC[0m [33mshared/rootcheck_op.o[0m
+    [34mCC[0m [33mshared/rules_op.o[0m
+    [34mCC[0m [33mshared/rwlock_op.o[0m
+    [34mCC[0m [33mshared/schedule_scan.o[0m
+    [34mCC[0m [33mshared/sig_op.o[0m
+    [34mCC[0m [33mshared/store_op.o[0m
+    [34mCC[0m [33mshared/string_op.o[0m
+    [34mCC[0m [33mshared/sym_load.o[0m
+    [34mCC[0m [33mshared/syscheck_op.o[0m
+    [34mCC[0m [33mshared/sysinfo_utils.o[0m
+    [34mCC[0m [33mshared/time_op.o[0m
+    [34mCC[0m [33mshared/url.o[0m
+    [34mCC[0m [33mshared/utf8_op.o[0m
+    [34mCC[0m [33mshared/validate_op.o[0m
+    [34mCC[0m [33mshared/vector_op.o[0m
+    [34mCC[0m [33mshared/version_op.o[0m
+    [34mCC[0m [33mshared/wait_op.o[0m
+    [34mCC[0m [33mshared/wazuhdb_op.o[0m
+    [34mCC[0m [33mshared/yaml2json.o[0m
+    [34mCC[0m [33mos_net/os_net.o[0m
+    [34mCC[0m [33mos_regex/os_match.o[0m
+    [34mCC[0m [33mos_regex/os_match_compile.o[0m
+    [34mCC[0m [33mos_regex/os_match_execute.o[0m
+    [34mCC[0m [33mos_regex/os_match_free_pattern.o[0m
+    [34mCC[0m [33mos_regex/os_regex.o[0m
+    [34mCC[0m [33mos_regex/os_regex_compile.o[0m
+    [34mCC[0m [33mos_regex/os_regex_execute.o[0m
+    [34mCC[0m [33mos_regex/os_regex_free_pattern.o[0m
+    [34mCC[0m [33mos_regex/os_regex_maps.o[0m
+    [34mCC[0m [33mos_regex/os_regex_match.o[0m
+    [34mCC[0m [33mos_regex/os_regex_startswith.o[0m
+    [34mCC[0m [33mos_regex/os_regex_str.o[0m
+    [34mCC[0m [33mos_regex/os_regex_strbreak.o[0m
+    [34mCC[0m [33mos_xml/os_xml.o[0m
+    [34mCC[0m [33mos_xml/os_xml_access.o[0m
+    [34mCC[0m [33mos_xml/os_xml_node_access.o[0m
+    [34mCC[0m [33mos_xml/os_xml_variables.o[0m
+    [34mCC[0m [33mos_xml/os_xml_writer.o[0m
+    [34mCC[0m [33mos_zlib/os_zlib.o[0m
+    [34mCC[0m [33mos_auth/ssl.o[0m
+    [34mCC[0m [33mos_auth/check_cert.o[0m
+    [34mCC[0m [33maddagent/validate.o[0m
+    [34mCC[0m [33manalysisd/logmsg.o[0m
+    [34;1mLINK[0m [37;1mlibwazuh.a[0m
+ar: `u' modifier ignored since `D' is the default (see `U')
+    [34;1mRANLIB[0m [37;1mlibwazuh.a[0m
+    [34;1mCC[0m [37;1mwazuh-agentd[0m
+    [34mCC[0m [33mos_auth/main-client.o[0m
+    [34;1mCC[0m [37;1magent-auth[0m
+    [34mCC[0m [33mlogcollector/config.o[0m
+    [34mCC[0m [33mlogcollector/journal_log.o[0m
+    [34mCC[0m [33mlogcollector/lccom.o[0m
+    [34mCC[0m [33mlogcollector/logcollector.o[0m
+    [34mCC[0m [33mlogcollector/macos_log.o[0m
+    [34mCC[0m [33mlogcollector/main.o[0m
+    [34mCC[0m [33mlogcollector/read_audit.o[0m
+    [34mCC[0m [33mlogcollector/read_command.o[0m
+    [34mCC[0m [33mlogcollector/read_djb_multilog.o[0m
+    [34mCC[0m [33mlogcollector/read_fullcommand.o[0m
+    [34mCC[0m [33mlogcollector/read_journald.o[0m
+    [34mCC[0m [33mlogcollector/read_json.o[0m
+    [34mCC[0m [33mlogcollector/read_macos.o[0m
+    [34mCC[0m [33mlogcollector/read_mssql_log.o[0m
+    [34mCC[0m [33mlogcollector/read_multiline.o[0m
+    [34mCC[0m [33mlogcollector/read_multiline_regex.o[0m
+    [34mCC[0m [33mlogcollector/read_mysql_log.o[0m
+    [34mCC[0m [33mlogcollector/read_nmapg.o[0m
+    [34mCC[0m [33mlogcollector/read_ossecalert.o[0m
+    [34mCC[0m [33mlogcollector/read_postgresql_log.o[0m
+    [34mCC[0m [33mlogcollector/read_snortfull.o[0m
+    [34mCC[0m [33mlogcollector/read_syslog.o[0m
+    [34mCC[0m [33mlogcollector/read_ucs2_be.o[0m
+    [34mCC[0m [33mlogcollector/read_ucs2_le.o[0m
+    [34mCC[0m [33mlogcollector/read_win_el.o[0m
+    [34mCC[0m [33mlogcollector/read_win_event_channel.o[0m
+    [34mCC[0m [33mlogcollector/state.o[0m
+    [34;1mCC[0m [37;1mwazuh-logcollector[0m
+    [34mCC[0m [33mrootcheck/check_open_ports.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_dev.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_files.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_if.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_pids.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_policy.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_ports.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_readproc.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_sys.o[0m
+    [34mCC[0m [33mrootcheck/check_rc_trojans.o[0m
+    [34mCC[0m [33mrootcheck/common.o[0m
+    [34mCC[0m [33mrootcheck/common_rcl.o[0m
+    [34mCC[0m [33mrootcheck/config.o[0m
+    [34mCC[0m [33mrootcheck/os_string.o[0m
+    [34mCC[0m [33mrootcheck/rootcheck.o[0m
+    [34mCC[0m [33mrootcheck/run_rk_check.o[0m
+    [34mCC[0m [33mrootcheck/unix-process.o[0m
+    [34mCC[0m [33mrootcheck/win-common.o[0m
+    [34mCC[0m [33mrootcheck/win-process.o[0m
+    [34;1mLINK[0m [37;1mlibrootcheck.a[0m
+ar: `u' modifier ignored since `D' is the default (see `U')
+    [34;1mRANLIB[0m [37;1mlibrootcheck.a[0m
+cd shared_modules/dbsync/ && mkdir -p build && cd build && cmake -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"   .. && make
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/shared_modules/dbsync/build
+make[2]: Entering directory '/root/wazuh/src/shared_modules/dbsync/build'
+[ 60%] Built target dbsync
+[ 80%] Built target dbsync_example
+[100%] Built target dbsync_test_tool
+make[2]: Leaving directory '/root/wazuh/src/shared_modules/dbsync/build'
+cd shared_modules/rsync/ && mkdir -p build && cd build && cmake -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive"    .. && make
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/shared_modules/rsync/build
+make[2]: Entering directory '/root/wazuh/src/shared_modules/rsync/build'
+[ 37%] Built target rsync
+[100%] Built target rsync_test_tool
+make[2]: Leaving directory '/root/wazuh/src/shared_modules/rsync/build'
+cd syscheckd && mkdir -p build && cd build && cmake  -DCMAKE_EXE_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_SHARED_LINKER_FLAGS="/root/wazuh/src/external/musl_compat/musl_compat.o -Wl,--whole-archive /usr/lib/libexecinfo.a /usr/lib/libucontext.a -Wl,--no-whole-archive" -DCMAKE_C_FLAGS="-DOSSECHIDS -DUSER=\"wazuh\" -DGROUPGLOBAL=\"wazuh\" -DLinux -DINOTIFY_ENABLED -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -DALPINE -DIMAGE_TRUST_CHECKS=1 -DCA_NAME='DigiCert Assured ID Root CA' -DENABLE_SYSC -DENABLE_CISCAT -DENABLE_AUDIT -DCLIENT -pipe -Wall -Wextra -std=gnu99"   .. && make
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /root/wazuh/src/syscheckd/build
+make[2]: Entering directory '/root/wazuh/src/syscheckd/build'
+[  3%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/db.cpp.o
+[  7%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/dbFileItem.cpp.o
+[ 11%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/dbRegistryKey.cpp.o
+[ 14%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/dbRegistryValue.cpp.o
+[ 18%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/file.cpp.o
+[ 22%] Building CXX object src/db/CMakeFiles/fimdb.dir/src/fimDB.cpp.o
+[ 25%] Linking CXX shared library ../../lib/libfimdb.so
+[ 25%] Built target fimdb
+[ 29%] Building CXX object src/ebpf/CMakeFiles/fimebpf.dir/src/ebpf_whodata.cpp.o
+[ 33%] Linking CXX shared library ../../lib/libfimebpf.so
+[ 33%] Built target fimebpf
+[ 37%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/config.c.o
+[ 40%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/create_db.c.o
+/root/wazuh/src/syscheckd/src/create_db.c: In function 'fim_get_data':
+/root/wazuh/src/syscheckd/src/create_db.c:1330:80: warning: comparison of integer expressions of different signedness: 'off_t' {aka 'long int'} and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 1330 |     if (S_ISREG(statbuf->st_mode) && (statbuf->st_size > 0 && statbuf->st_size < syscheck.file_max_size) &&
+      |                                                                                ^
+[ 44%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/fim_diff_changes.c.o
+[ 48%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/main.c.o
+[ 51%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/registry/events.c.o
+[ 55%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/registry/registry.c.o
+[ 59%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/run_check.c.o
+In file included from /root/wazuh/src/headers/shared.h:245,
+                 from /root/wazuh/src/syscheckd/src/run_check.c:21:
+/root/wazuh/src/syscheckd/src/run_check.c: In function 'start_daemon':
+/root/wazuh/src/headers/pthreads_op.h:15:49: warning: cast between incompatible function types from 'int (*)()' to 'void * (*)(void *)' [-Wcast-function-type]
+   15 | #define w_create_thread(x, y) if (!CreateThread((void * (*) (void *))x, y)) merror_exit(THREAD_ERROR);
+      |                                                 ^
+/root/wazuh/src/syscheckd/src/run_check.c:320:9: note: in expansion of macro 'w_create_thread'
+  320 |         w_create_thread(ebpf_whodata, NULL);
+      |         ^~~~~~~~~~~~~~~
+[ 62%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/run_realtime.c.o
+[ 66%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/syscheck.c.o
+/root/wazuh/src/syscheckd/src/syscheck.c: In function 'check_ebpf_availability':
+/root/wazuh/src/syscheckd/src/syscheck.c:326:21: warning: unused variable 'node_it' [-Wunused-variable]
+  326 |         OSListNode *node_it;
+      |                     ^~~~~~~
+/root/wazuh/src/syscheckd/src/syscheck.c:325:22: warning: unused variable 'dir_it' [-Wunused-variable]
+  325 |         directory_t *dir_it;
+      |                      ^~~~~~
+[ 70%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/syscom.c.o
+[ 74%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/whodata/audit_healthcheck.c.o
+[ 77%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/whodata/audit_parse.c.o
+[ 81%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/whodata/audit_rule_handling.c.o
+[ 85%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/whodata/syscheck_audit.c.o
+[ 88%] Building C object CMakeFiles/wazuh-syscheckd.dir/src/whodata/win_whodata.c.o
+[ 92%] Linking C executable bin/wazuh-syscheckd
+[ 92%] Built target wazuh-syscheckd
+[ 96%] Building CXX object src/db/testtool/CMakeFiles/fimdb_test_tool.dir/main.cpp.o
+[100%] Linking CXX executable ../../../bin/fimdb_test_tool
+[100%] Built target fimdb_test_tool
+make[2]: Leaving directory '/root/wazuh/src/syscheckd/build'
+    [34mCC[0m [33mos_execd/config.o[0m
+    [34mCC[0m [33mos_execd/exec.o[0m
+    [34mCC[0m [33mos_execd/execd.o[0m
+    [34mCC[0m [33mos_execd/main.o[0m
+    [34mCC[0m [33mos_execd/wcom.o[0m
+    [34mCC[0m [33mactive-response/active_responses.o[0m
+    [34;1mCC[0m [37;1mwazuh-execd[0m
+    [34mCC[0m [33maddagent/main.o[0m
+    [34mCC[0m [33maddagent/manage_agents.o[0m
+    [34mCC[0m [33maddagent/manage_keys.o[0m
+    [34mCC[0m [33maddagent/read_from_user.o[0m
+    [34;1mCC[0m [37;1mmanage_agents[0m
+    [34mCC[0m [33mactive-response/firewalls/default-firewall-drop.o[0m
+    [34mCC[0m [33mshared/file_op_proc.o[0m
+    [34mCC[0m [33mshared/debug_op_proc.o[0m
+    [34;1mCC[0m [37;1mlibwazuhshared.so[0m
+/usr/lib/gcc/x86_64-alpine-linux-musl/14.2.0/../../../../x86_64-alpine-linux-musl/bin/ld: missing --end-group; added as last command line option
+    [34;1mCC[0m [37;1mdefault-firewall-drop[0m
+    [34mCC[0m [33mactive-response/firewalls/pf.o[0m
+    [34;1mCC[0m [37;1mpf[0m
+    [34mCC[0m [33mactive-response/firewalls/npf.o[0m
+    [34;1mCC[0m [37;1mnpf[0m
+    [34mCC[0m [33mactive-response/firewalls/ipfw.o[0m
+    [34;1mCC[0m [37;1mipfw[0m
+    [34mCC[0m [33mactive-response/firewalld-drop.o[0m
+    [34;1mCC[0m [37;1mfirewalld-drop[0m
+    [34mCC[0m [33mactive-response/disable-account.o[0m
+    [34;1mCC[0m [37;1mdisable-account[0m
+    [34mCC[0m [33mactive-response/host-deny.o[0m
+    [34;1mCC[0m [37;1mhost-deny[0m
+    [34mCC[0m [33mactive-response/ip-customblock.o[0m
+    [34;1mCC[0m [37;1mip-customblock[0m
+    [34mCC[0m [33mactive-response/restart-wazuh.o[0m
+    [34;1mCC[0m [37;1mrestart-wazuh[0m
+    [34mCC[0m [33mactive-response/route-null.o[0m
+    [34;1mCC[0m [37;1mroute-null[0m
+    [34mCC[0m [33mactive-response/kaspersky.o[0m
+    [34;1mCC[0m [37;1mkaspersky[0m
+    [34mCC[0m [33mactive-response/wazuh-slack.o[0m
+    [34;1mCC[0m [37;1mwazuh-slack[0m
+    [34mCC[0m [33mwazuh_modules/main.o[0m
+    [34;1mCC[0m [37;1mwazuh-modulesd[0m
+make[1]: Leaving directory '/root/wazuh/src'
+make settings
+make[1]: Entering directory '/root/wazuh/src'
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+
+General settings:
+    TARGET:             agent
+    V:                  
+    DEBUG:              
+    DEBUGAD             
+    INSTALLDIR:         
+    DATABASE:           
+    ONEWAY:             no
+    CLEANFULL:          no
+    RESOURCES_URL:      https://packages.wazuh.com/deps/40
+    EXTERNAL_SRC_ONLY:  
+    HTTP_REQUEST_BRANCH:75384783d339a817b8d8f13f778051a878d642a6
+User settings:
+    WAZUH_GROUP:        wazuh
+    WAZUH_USER:         wazuh
+USE settings:
+    USE_ZEROMQ:         no
+    USE_GEOIP:          no
+    USE_PRELUDE:        no
+    USE_INOTIFY:        no
+    USE_BIG_ENDIAN:     no
+    USE_SELINUX:        no
+    USE_AUDIT:          yes
+    DISABLE_SYSC:       no
+    DISABLE_CISCAT:     no
+    IMAGE_TRUST_CHECKS: 1
+    CA_NAME:            DigiCert Assured ID Root CA
+Mysql settings:
+    includes:           
+    libs:               
+Pgsql settings:
+    includes:           
+    libs:               
+Defines:
+    -DOSSECHIDS -DUSER="wazuh" -DGROUPGLOBAL="wazuh" -DLinux -DINOTIFY_ENABLED -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -DALPINE -DIMAGE_TRUST_CHECKS=1 -DCA_NAME='DigiCert Assured ID Root CA' -DENABLE_SYSC -DENABLE_CISCAT -DENABLE_AUDIT -DCLIENT
+Compiler:
+    CFLAGS            -pthread -Iexternal/pacman/lib/libalpm/ -Iexternal/libarchive/libarchive -Wl,--start-group -Iexternal/audit-userspace/lib -g -DNDEBUG -O2 -DOSSECHIDS -DUSER="wazuh" -DGROUPGLOBAL="wazuh" -DLinux -DINOTIFY_ENABLED -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -DALPINE -DIMAGE_TRUST_CHECKS=1 -DCA_NAME='DigiCert Assured ID Root CA' -DENABLE_SYSC -DENABLE_CISCAT -DENABLE_AUDIT -DCLIENT -pipe -Wall -Wextra -std=gnu99 -I./ -I./headers/ -Iexternal/openssl/include -Iexternal/cJSON/ -Iexternal/libyaml/include -Iexternal/curl/include -Iexternal/msgpack/include -Iexternal/bzip2/ -Ishared_modules/common -Ishared_modules/dbsync/include -Ishared_modules/rsync/include -Iwazuh_modules/syscollector/include  -Idata_provider/include  -Iexternal/libpcre2/include -Iexternal/rpm//builddir/output/include -Isyscheckd/include -Ishared_modules/router/include -Ishared_modules/content_manager/include -Iwazuh_modules/vulnerability_scanner/include -I./shared_modules/ -D_GNU_SOURCE -I/usr/include -include /usr/include/linux/bpf_insn.h -Wno-error=incompatible-pointer-types
+    LDFLAGS           '-Wl,-rpath,/../lib' -pthread -lrt -ldl -O2 -Lshared_modules/dbsync/build/lib -Lshared_modules/rsync/build/lib  -Lwazuh_modules/syscollector/build/lib -Ldata_provider/build/lib -Lsyscheckd/build/lib
+    LIBS              -lintl -lrt -ldl -lm  /root/wazuh/src/external/musl_compat/musl_compat.o /usr/lib/libucontext.a /usr/lib/libexecinfo.a
+    CC                gcc
+    MAKE              make
+make[1]: Leaving directory '/root/wazuh/src'
+
+[32;1mDone building agent
+[0m
