@@ -1,0 +1,113 @@
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+curl -so external/cJSON.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/cJSON.tar.gz
+cd external && gunzip cJSON.tar.gz
+cd external && tar -xf cJSON.tar
+rm external/cJSON.tar
+curl -so external/curl.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/curl.tar.gz
+cd external && gunzip curl.tar.gz
+cd external && tar -xf curl.tar
+rm external/curl.tar
+curl -so external/libdb.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libdb.tar.gz
+cd external && gunzip libdb.tar.gz
+cd external && tar -xf libdb.tar
+rm external/libdb.tar
+curl -so external/libffi.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libffi.tar.gz
+cd external && gunzip libffi.tar.gz
+cd external && tar -xf libffi.tar
+rm external/libffi.tar
+curl -so external/libyaml.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libyaml.tar.gz
+cd external && gunzip libyaml.tar.gz
+cd external && tar -xf libyaml.tar
+rm external/libyaml.tar
+curl -so external/openssl.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/openssl.tar.gz
+cd external && gunzip openssl.tar.gz
+cd external && tar -xf openssl.tar
+rm external/openssl.tar
+curl -so external/procps.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/procps.tar.gz
+cd external && gunzip procps.tar.gz
+cd external && tar -xf procps.tar
+rm external/procps.tar
+curl -so external/sqlite.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/sqlite.tar.gz
+cd external && gunzip sqlite.tar.gz
+cd external && tar -xf sqlite.tar
+rm external/sqlite.tar
+curl -so external/zlib.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/zlib.tar.gz
+cd external && gunzip zlib.tar.gz
+cd external && tar -xf zlib.tar
+rm external/zlib.tar
+curl -so external/audit-userspace.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/audit-userspace.tar.gz
+cd external && gunzip audit-userspace.tar.gz
+cd external && tar -xf audit-userspace.tar
+rm external/audit-userspace.tar
+curl -so external/msgpack.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/msgpack.tar.gz
+cd external && gunzip msgpack.tar.gz
+cd external && tar -xf msgpack.tar
+rm external/msgpack.tar
+curl -so external/bzip2.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/bzip2.tar.gz
+cd external && gunzip bzip2.tar.gz
+cd external && tar -xf bzip2.tar
+rm external/bzip2.tar
+curl -so external/nlohmann.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/nlohmann.tar.gz
+cd external && gunzip nlohmann.tar.gz
+cd external && tar -xf nlohmann.tar
+rm external/nlohmann.tar
+curl -so external/googletest.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/googletest.tar.gz
+cd external && gunzip googletest.tar.gz
+cd external && tar -xf googletest.tar
+rm external/googletest.tar
+curl -so external/libpcre2.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libpcre2.tar.gz
+cd external && gunzip libpcre2.tar.gz
+cd external && tar -xf libpcre2.tar
+rm external/libpcre2.tar
+curl -so external/libplist.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libplist.tar.gz
+cd external && gunzip libplist.tar.gz
+cd external && tar -xf libplist.tar
+rm external/libplist.tar
+curl -so external/pacman.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/pacman.tar.gz
+cd external && gunzip pacman.tar.gz
+cd external && tar -xf pacman.tar
+rm external/pacman.tar
+curl -so external/libarchive.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libarchive.tar.gz
+cd external && gunzip libarchive.tar.gz
+cd external && tar -xf libarchive.tar
+rm external/libarchive.tar
+curl -so external/popt.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/popt.tar.gz
+cd external && gunzip popt.tar.gz
+cd external && tar -xf popt.tar
+rm external/popt.tar
+curl -so external/lua.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/lua.tar.gz
+cd external && gunzip lua.tar.gz
+cd external && tar -xf lua.tar
+rm external/lua.tar
+curl -so external/rpm.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/rpm.tar.gz
+cd external && gunzip rpm.tar.gz
+cd external && tar -xf rpm.tar
+rm external/rpm.tar
+curl -so external/rocksdb.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/rocksdb.tar.gz
+cd external && gunzip rocksdb.tar.gz
+cd external && tar -xf rocksdb.tar
+rm external/rocksdb.tar
+curl -so external/lzma.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/lzma.tar.gz
+cd external && gunzip lzma.tar.gz
+cd external && tar -xf lzma.tar
+rm external/lzma.tar
+curl -so external/cpp-httplib.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/cpp-httplib.tar.gz
+cd external && gunzip cpp-httplib.tar.gz
+cd external && tar -xf cpp-httplib.tar
+rm external/cpp-httplib.tar
+curl -so external/benchmark.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/benchmark.tar.gz
+cd external && gunzip benchmark.tar.gz
+cd external && tar -xf benchmark.tar
+rm external/benchmark.tar
+curl -so external/libbpf-bootstrap.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libbpf-bootstrap.tar.gz
+cd external && gunzip libbpf-bootstrap.tar.gz
+cd external && tar -xf libbpf-bootstrap.tar
+rm external/libbpf-bootstrap.tar
+find shared_modules/http-request -type f -exec false {} + &&\
+((test -e shared_modules/http-request.tar || curl -so shared_modules/http-request.tar.gz -L https://github.com/wazuh/wazuh-http-request/tarball/75384783d339a817b8d8f13f778051a878d642a6) &&\
+(gunzip shared_modules/http-request.tar.gz || (rm -f shared_modules/http-request.tar.gz && echo "Error decompressing shared_modules/http-request.tar.gz maybe wrong branch was supplied!" && false)) &&\
+tar -xf shared_modules/http-request.tar --strip-components=1 -C shared_modules/http-request &&\
+rm shared_modules/http-request.tar) || true

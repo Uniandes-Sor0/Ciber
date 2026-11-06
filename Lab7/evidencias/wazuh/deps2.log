@@ -1,0 +1,191 @@
+Makefile:2709: warning: overriding recipe for target 'win32/ui_resource.o'
+Makefile:2649: warning: ignoring old recipe for target 'win32/ui_resource.o'
+Makefile:2712: warning: overriding recipe for target 'win32/auth_resource.o'
+Makefile:2652: warning: ignoring old recipe for target 'win32/auth_resource.o'
+curl -so external/cJSON.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/cJSON.tar.gz || true
+cd external && [ -f cJSON.tar.gz ] && gunzip cJSON.tar.gz || true
+cd external && [ -f cJSON.tar ] && tar -xf cJSON.tar || true
+[ -f external/cJSON.tar ] && rm external/cJSON.tar || true
+test -d external/cJSON ||\
+(curl -so external/cJSON.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/cJSON.tar.gz &&\
+cd external && gunzip cJSON.tar.gz && tar -xf cJSON.tar && rm cJSON.tar)
+curl -so external/curl.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/curl.tar.gz || true
+cd external && [ -f curl.tar.gz ] && gunzip curl.tar.gz || true
+cd external && [ -f curl.tar ] && tar -xf curl.tar || true
+[ -f external/curl.tar ] && rm external/curl.tar || true
+test -d external/curl ||\
+(curl -so external/curl.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/curl.tar.gz &&\
+cd external && gunzip curl.tar.gz && tar -xf curl.tar && rm curl.tar)
+curl -so external/libdb.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libdb.tar.gz || true
+cd external && [ -f libdb.tar.gz ] && gunzip libdb.tar.gz || true
+cd external && [ -f libdb.tar ] && tar -xf libdb.tar || true
+[ -f external/libdb.tar ] && rm external/libdb.tar || true
+test -d external/libdb ||\
+(curl -so external/libdb.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libdb.tar.gz &&\
+cd external && gunzip libdb.tar.gz && tar -xf libdb.tar && rm libdb.tar)
+curl -so external/libffi.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libffi.tar.gz || true
+cd external && [ -f libffi.tar.gz ] && gunzip libffi.tar.gz || true
+cd external && [ -f libffi.tar ] && tar -xf libffi.tar || true
+[ -f external/libffi.tar ] && rm external/libffi.tar || true
+test -d external/libffi ||\
+(curl -so external/libffi.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libffi.tar.gz &&\
+cd external && gunzip libffi.tar.gz && tar -xf libffi.tar && rm libffi.tar)
+curl -so external/libyaml.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libyaml.tar.gz || true
+cd external && [ -f libyaml.tar.gz ] && gunzip libyaml.tar.gz || true
+cd external && [ -f libyaml.tar ] && tar -xf libyaml.tar || true
+[ -f external/libyaml.tar ] && rm external/libyaml.tar || true
+test -d external/libyaml ||\
+(curl -so external/libyaml.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libyaml.tar.gz &&\
+cd external && gunzip libyaml.tar.gz && tar -xf libyaml.tar && rm libyaml.tar)
+curl -so external/openssl.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/openssl.tar.gz || true
+cd external && [ -f openssl.tar.gz ] && gunzip openssl.tar.gz || true
+cd external && [ -f openssl.tar ] && tar -xf openssl.tar || true
+[ -f external/openssl.tar ] && rm external/openssl.tar || true
+test -d external/openssl ||\
+(curl -so external/openssl.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/openssl.tar.gz &&\
+cd external && gunzip openssl.tar.gz && tar -xf openssl.tar && rm openssl.tar)
+curl -so external/procps.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/procps.tar.gz || true
+cd external && [ -f procps.tar.gz ] && gunzip procps.tar.gz || true
+cd external && [ -f procps.tar ] && tar -xf procps.tar || true
+[ -f external/procps.tar ] && rm external/procps.tar || true
+test -d external/procps ||\
+(curl -so external/procps.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/procps.tar.gz &&\
+cd external && gunzip procps.tar.gz && tar -xf procps.tar && rm procps.tar)
+curl -so external/sqlite.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/sqlite.tar.gz || true
+cd external && [ -f sqlite.tar.gz ] && gunzip sqlite.tar.gz || true
+cd external && [ -f sqlite.tar ] && tar -xf sqlite.tar || true
+[ -f external/sqlite.tar ] && rm external/sqlite.tar || true
+test -d external/sqlite ||\
+(curl -so external/sqlite.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/sqlite.tar.gz &&\
+cd external && gunzip sqlite.tar.gz && tar -xf sqlite.tar && rm sqlite.tar)
+curl -so external/zlib.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/zlib.tar.gz || true
+cd external && [ -f zlib.tar.gz ] && gunzip zlib.tar.gz || true
+cd external && [ -f zlib.tar ] && tar -xf zlib.tar || true
+[ -f external/zlib.tar ] && rm external/zlib.tar || true
+test -d external/zlib ||\
+(curl -so external/zlib.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/zlib.tar.gz &&\
+cd external && gunzip zlib.tar.gz && tar -xf zlib.tar && rm zlib.tar)
+curl -so external/audit-userspace.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/audit-userspace.tar.gz || true
+cd external && [ -f audit-userspace.tar.gz ] && gunzip audit-userspace.tar.gz || true
+cd external && [ -f audit-userspace.tar ] && tar -xf audit-userspace.tar || true
+[ -f external/audit-userspace.tar ] && rm external/audit-userspace.tar || true
+test -d external/audit-userspace ||\
+(curl -so external/audit-userspace.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/audit-userspace.tar.gz &&\
+cd external && gunzip audit-userspace.tar.gz && tar -xf audit-userspace.tar && rm audit-userspace.tar)
+curl -so external/msgpack.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/msgpack.tar.gz || true
+cd external && [ -f msgpack.tar.gz ] && gunzip msgpack.tar.gz || true
+cd external && [ -f msgpack.tar ] && tar -xf msgpack.tar || true
+[ -f external/msgpack.tar ] && rm external/msgpack.tar || true
+test -d external/msgpack ||\
+(curl -so external/msgpack.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/msgpack.tar.gz &&\
+cd external && gunzip msgpack.tar.gz && tar -xf msgpack.tar && rm msgpack.tar)
+curl -so external/bzip2.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/bzip2.tar.gz || true
+cd external && [ -f bzip2.tar.gz ] && gunzip bzip2.tar.gz || true
+cd external && [ -f bzip2.tar ] && tar -xf bzip2.tar || true
+[ -f external/bzip2.tar ] && rm external/bzip2.tar || true
+test -d external/bzip2 ||\
+(curl -so external/bzip2.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/bzip2.tar.gz &&\
+cd external && gunzip bzip2.tar.gz && tar -xf bzip2.tar && rm bzip2.tar)
+curl -so external/nlohmann.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/nlohmann.tar.gz || true
+cd external && [ -f nlohmann.tar.gz ] && gunzip nlohmann.tar.gz || true
+cd external && [ -f nlohmann.tar ] && tar -xf nlohmann.tar || true
+[ -f external/nlohmann.tar ] && rm external/nlohmann.tar || true
+test -d external/nlohmann ||\
+(curl -so external/nlohmann.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/nlohmann.tar.gz &&\
+cd external && gunzip nlohmann.tar.gz && tar -xf nlohmann.tar && rm nlohmann.tar)
+curl -so external/googletest.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/googletest.tar.gz || true
+cd external && [ -f googletest.tar.gz ] && gunzip googletest.tar.gz || true
+cd external && [ -f googletest.tar ] && tar -xf googletest.tar || true
+[ -f external/googletest.tar ] && rm external/googletest.tar || true
+test -d external/googletest ||\
+(curl -so external/googletest.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/googletest.tar.gz &&\
+cd external && gunzip googletest.tar.gz && tar -xf googletest.tar && rm googletest.tar)
+curl -so external/libpcre2.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libpcre2.tar.gz || true
+cd external && [ -f libpcre2.tar.gz ] && gunzip libpcre2.tar.gz || true
+cd external && [ -f libpcre2.tar ] && tar -xf libpcre2.tar || true
+[ -f external/libpcre2.tar ] && rm external/libpcre2.tar || true
+test -d external/libpcre2 ||\
+(curl -so external/libpcre2.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libpcre2.tar.gz &&\
+cd external && gunzip libpcre2.tar.gz && tar -xf libpcre2.tar && rm libpcre2.tar)
+curl -so external/libplist.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libplist.tar.gz || true
+cd external && [ -f libplist.tar.gz ] && gunzip libplist.tar.gz || true
+cd external && [ -f libplist.tar ] && tar -xf libplist.tar || true
+[ -f external/libplist.tar ] && rm external/libplist.tar || true
+test -d external/libplist ||\
+(curl -so external/libplist.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libplist.tar.gz &&\
+cd external && gunzip libplist.tar.gz && tar -xf libplist.tar && rm libplist.tar)
+curl -so external/pacman.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/pacman.tar.gz || true
+cd external && [ -f pacman.tar.gz ] && gunzip pacman.tar.gz || true
+cd external && [ -f pacman.tar ] && tar -xf pacman.tar || true
+[ -f external/pacman.tar ] && rm external/pacman.tar || true
+test -d external/pacman ||\
+(curl -so external/pacman.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/pacman.tar.gz &&\
+cd external && gunzip pacman.tar.gz && tar -xf pacman.tar && rm pacman.tar)
+curl -so external/libarchive.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libarchive.tar.gz || true
+cd external && [ -f libarchive.tar.gz ] && gunzip libarchive.tar.gz || true
+cd external && [ -f libarchive.tar ] && tar -xf libarchive.tar || true
+[ -f external/libarchive.tar ] && rm external/libarchive.tar || true
+test -d external/libarchive ||\
+(curl -so external/libarchive.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libarchive.tar.gz &&\
+cd external && gunzip libarchive.tar.gz && tar -xf libarchive.tar && rm libarchive.tar)
+curl -so external/popt.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/popt.tar.gz || true
+cd external && [ -f popt.tar.gz ] && gunzip popt.tar.gz || true
+cd external && [ -f popt.tar ] && tar -xf popt.tar || true
+[ -f external/popt.tar ] && rm external/popt.tar || true
+test -d external/popt ||\
+(curl -so external/popt.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/popt.tar.gz &&\
+cd external && gunzip popt.tar.gz && tar -xf popt.tar && rm popt.tar)
+curl -so external/lua.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/lua.tar.gz || true
+cd external && [ -f lua.tar.gz ] && gunzip lua.tar.gz || true
+cd external && [ -f lua.tar ] && tar -xf lua.tar || true
+[ -f external/lua.tar ] && rm external/lua.tar || true
+test -d external/lua ||\
+(curl -so external/lua.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/lua.tar.gz &&\
+cd external && gunzip lua.tar.gz && tar -xf lua.tar && rm lua.tar)
+curl -so external/rpm.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/rpm.tar.gz || true
+cd external && [ -f rpm.tar.gz ] && gunzip rpm.tar.gz || true
+cd external && [ -f rpm.tar ] && tar -xf rpm.tar || true
+[ -f external/rpm.tar ] && rm external/rpm.tar || true
+test -d external/rpm ||\
+(curl -so external/rpm.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/rpm.tar.gz &&\
+cd external && gunzip rpm.tar.gz && tar -xf rpm.tar && rm rpm.tar)
+curl -so external/rocksdb.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/rocksdb.tar.gz || true
+cd external && [ -f rocksdb.tar.gz ] && gunzip rocksdb.tar.gz || true
+cd external && [ -f rocksdb.tar ] && tar -xf rocksdb.tar || true
+[ -f external/rocksdb.tar ] && rm external/rocksdb.tar || true
+test -d external/rocksdb ||\
+(curl -so external/rocksdb.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/rocksdb.tar.gz &&\
+cd external && gunzip rocksdb.tar.gz && tar -xf rocksdb.tar && rm rocksdb.tar)
+curl -so external/lzma.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/lzma.tar.gz || true
+cd external && [ -f lzma.tar.gz ] && gunzip lzma.tar.gz || true
+cd external && [ -f lzma.tar ] && tar -xf lzma.tar || true
+[ -f external/lzma.tar ] && rm external/lzma.tar || true
+test -d external/lzma ||\
+(curl -so external/lzma.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/lzma.tar.gz &&\
+cd external && gunzip lzma.tar.gz && tar -xf lzma.tar && rm lzma.tar)
+curl -so external/cpp-httplib.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/cpp-httplib.tar.gz || true
+cd external && [ -f cpp-httplib.tar.gz ] && gunzip cpp-httplib.tar.gz || true
+cd external && [ -f cpp-httplib.tar ] && tar -xf cpp-httplib.tar || true
+[ -f external/cpp-httplib.tar ] && rm external/cpp-httplib.tar || true
+test -d external/cpp-httplib ||\
+(curl -so external/cpp-httplib.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/cpp-httplib.tar.gz &&\
+cd external && gunzip cpp-httplib.tar.gz && tar -xf cpp-httplib.tar && rm cpp-httplib.tar)
+curl -so external/benchmark.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/benchmark.tar.gz || true
+cd external && [ -f benchmark.tar.gz ] && gunzip benchmark.tar.gz || true
+cd external && [ -f benchmark.tar ] && tar -xf benchmark.tar || true
+[ -f external/benchmark.tar ] && rm external/benchmark.tar || true
+test -d external/benchmark ||\
+(curl -so external/benchmark.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/benchmark.tar.gz &&\
+cd external && gunzip benchmark.tar.gz && tar -xf benchmark.tar && rm benchmark.tar)
+curl -so external/libbpf-bootstrap.tar.gz https://packages.wazuh.com/deps/40/libraries/linux/amd64/libbpf-bootstrap.tar.gz || true
+cd external && [ -f libbpf-bootstrap.tar.gz ] && gunzip libbpf-bootstrap.tar.gz || true
+cd external && [ -f libbpf-bootstrap.tar ] && tar -xf libbpf-bootstrap.tar || true
+[ -f external/libbpf-bootstrap.tar ] && rm external/libbpf-bootstrap.tar || true
+test -d external/libbpf-bootstrap ||\
+(curl -so external/libbpf-bootstrap.tar.gz https://packages.wazuh.com/deps/40/libraries/sources/libbpf-bootstrap.tar.gz &&\
+cd external && gunzip libbpf-bootstrap.tar.gz && tar -xf libbpf-bootstrap.tar && rm libbpf-bootstrap.tar)
+find shared_modules/http-request -type f -exec false {} + &&\
+((test -e shared_modules/http-request.tar || curl -so shared_modules/http-request.tar.gz -L https://github.com/wazuh/wazuh-http-request/tarball/75384783d339a817b8d8f13f778051a878d642a6) &&\
+(gunzip shared_modules/http-request.tar.gz || (rm -f shared_modules/http-request.tar.gz && echo "Error decompressing shared_modules/http-request.tar.gz maybe wrong branch was supplied!" && false)) &&\
+tar -xf shared_modules/http-request.tar --strip-components=1 -C shared_modules/http-request &&\
+rm shared_modules/http-request.tar) || true
